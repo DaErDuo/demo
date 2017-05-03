@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="css/style.css" rel="stylesheet">
+    <title>幸运大转盘</title>
+</head>
+<body>
+    <div class="page">
+        <!-- top -->
+        <div class="top">
+            <div class="pic-bg-top pic-bg-top-0"><img src="images/pic-bg-top-0.png"></div>
+            <div class="pic-bg-top pic-bg-top-1"><img src="images/pic-bg-top-1.png"></div>
+            <div class="pic-bg-top pic-bg-top-2"><img src="images/pic-bg-top-2.png"></div>
+            <div class="pic-bg-top pic-bg-top-3"><img src="images/pic-bg-top-3.png"></div>
+            <div class="pic-bg-top pic-bg-top-4"><img src="images/pic-bg-top-4.png"></div>
+            <a id="rules" class="btn-rules" href="javascript: void(0);"></a>
+        </div>
+
+        <!-- main -->
+        <div id="cjPlate" class="cj-container">
+            <div class="light light-active">
+                <img class="pic-light-1" src="images/pic-turnplate-light-1.png" alt="Turnplate Light">
+                <img class="pic-light-2" src="images/pic-turnplate-light-2.png" alt="Turnplate Light">
+            </div>
+            <div class="turnplate">
+                <div class="prize prize-0"><p><span>牙牙积分</span></p><img src="images/prize/pic-prize-0.png" alt="Prize"></div>
+                <div class="prize prize-1"><p><span>移动电源</span></p><img src="images/prize/pic-prize-1.png" alt="Prize"></div>
+                <div class="prize prize-2"><p><span>定制水杯</span></p><img src="images/prize/pic-prize-2.png" alt="Prize"></div>
+                <div class="prize prize-3"><p><span>上网流量包</span></p><img src="images/prize/pic-prize-3.png" alt="Prize"></div>
+                <div class="prize prize-4"><p><span>明星面膜</span></p><img src="images/prize/pic-prize-4.png" alt="Prize"></div>
+                <div class="prize prize-5"><p><span>观影券</span></p><img src="images/prize/pic-prize-5.png" alt="Prize"></div>
+            </div>
+            <div class="show-board">你还有<i id="playTimes">3</i>次抽奖机会</div>
+            <a id="run" class="run" href="javascript: void(0);"><img src="images/icon-pointer.png" alt="Pointer"></a>
+        </div>
+
+        <!-- button share -->
+        <a class="btn btn-share" href="javascript: void(0);"><img src="images/icon-share.png" alt="share">首次分享到朋友圈增加1次抽奖</a>
+
+        <!-- winner list -->
+        <div class="block-box winner-list">
+            <div class="title">
+                <img class="pic-title" src="images/icon-winner-list.png" alt="winner list">
+                <img class="pic-square pic-square-yellow" src="images/pic-square-yellow.png" alt="Square">
+                <img class="pic-square pic-square-purple" src="images/pic-square-purple.png" alt="Square">
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <ul class="swiper-slide">
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>张三三</p>
+                            <p>获得<span class="prize-name">苹果手机</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>李四</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>飞飞</p>
+                            <p>获得<span class="prize-name">张亮花絮相册</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>大哥大</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>小熊</p>
+                            <p>获得<span class="prize-name">牙牙关注吉祥物</span></p>
+                        </li>
+                    </ul>
+                    <ul class="swiper-slide">
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>1</p>
+                            <p>获得<span class="prize-name">苹果手机</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>2</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>3</p>
+                            <p>获得<span class="prize-name">张亮花絮相册</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>4</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>5</p>
+                            <p>获得<span class="prize-name">牙牙关注吉祥物</span></p>
+                        </li>
+                    </ul>
+                    <ul class="swiper-slide">
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>6</p>
+                            <p>获得<span class="prize-name">苹果手机</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>7</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>8</p>
+                            <p>获得<span class="prize-name">张亮花絮相册</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>9</p>
+                            <p>获得<span class="prize-name">10元话费</span></p>
+                        </li>
+                        <li>
+                            <img class="avatar" src="images/head-default.png" alt="head">
+                            <p>10</p>
+                            <p>获得<span class="prize-name">牙牙关注吉祥物</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- rules -->
+        <div class="block-box rules">
+            <div class="title">
+                <img class="pic-title" src="images/icon-rules.png" alt="Rules">
+                <img class="pic-square pic-square-yellow" src="images/pic-square-yellow.png" alt="Square">
+                <img class="pic-square pic-square-purple" src="images/pic-square-purple.png" alt="Square">
+            </div>
+            <ol>
+                <li>活动结束时间以具体下线时间为准，奖品将不定期更新。</li>
+                <li>新用户有一次抽奖机会；首次分享到朋友圈可增加一次抽奖机会；参与牙牙关注互动版块其他活动也可获得抽奖机会；增加的抽奖机会有效期为 5 天。</li>
+                <li>中奖后前往“我的”－“我的奖品”填写领奖信息，工作人员将在5个工作日左右跟您核实并安排派发。</li>
+                <li>请务必填写准确、有效的领奖信息，中奖3天后未填或填写错误致无法派奖，视为弃权。</li>
+                <li>如有疑问，请前往牙牙关注官方微博、微信公众号咨询客服。</li>
+                <li>牙牙关注保留在法律规定范围内对上述规则进行解释的权利。</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- popup: bound phone number -->
+    <div id="boundPhoneNum" class="popup-wrapper" style="display: none;">
+        <div class="popup-box bound-phone-number">
+            <div class="box-head"><a class="close" href="javascript: void(0);"></a></div>
+            <div class="box-body">
+                <div class="pic-prize"><img src="images/prize/pic-prize-4.png" alt="Prize"></div>
+                <p>恭喜你！<br>抽中<span class="prize-name">明星面膜</span></p>
+                <p class="tips">马上验证手机号码，领取您的奖品！</p>
+                <div class="ipt-wrap"><input type="text" placeholder="请输入手机号" maxlength="11"></div>
+                <div class="ipt-wrap"><input class="valid-code" type="text" placeholder="请输入验证码" maxlength="6"><input class="get-code" type="button" value="获取验证码"></div>
+                <a class="btn" href="contact-info.html">提交</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- popup: winning -->
+    <div id="winning" class="popup-wrapper" style="display: none;">
+        <div class="popup-box winning">
+            <div class="box-head"><a class="close" href="javascript: void(0);"></a></div>
+            <div class="box-body">
+                <div class="pic-prize"><img src="images/prize/pic-prize-4.png" alt="Prize"></div>
+                <p>恭喜您！<br>抽中<span class="prize-name">明星面膜</span></p>
+                <a class="btn" href="contact-info.html">填写领奖信息</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script src="../common/js/plugins/jquery.rotate.min.js"></script>
+    <script src="../common/js/plugins/jquery.easing.min.js"></script>
+    <script src="../common/js/plugins/jquery.finger.min.js"></script>
+    <script src="../common/js/plugins/swiper.jquery.min.js"></script>
+    <script src="../common/js/tools.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(window).on('load', function(){
+            $('.pic-bg-top-1').addClass('pic-bg-top-1-animate');
+            $('.pic-bg-top-2').addClass('pic-bg-top-2-animate');
+            $('.pic-bg-top-3').addClass('pic-bg-top-3-animate');
+            $('.pic-bg-top-4').addClass('pic-bg-top-4-animate');
+            $('.pic-square-yellow').addClass('pic-square-yellow-animate');
+            $('.pic-square-purple').addClass('pic-square-purple-animate');
+
+            setTimeout(function(){
+                $(".turnplate").rotate({
+                    duration: 4000,
+                    angle: 0,
+                    animateTo: 360 * 3,
+                    easing: function (x, t, b, c, d) {
+                        return -c * ((t=t/d-1)*t*t*t - 1) + b;
+                    },
+                    callback: function () {
+                        $('#run').on('tap', playGame);
+                    }
+                });
+            }, 600);
+        });
+    </script>
+</body>
+</html>
