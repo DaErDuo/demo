@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="css/style.css" rel="stylesheet">
+    <title>填写领奖信息</title>
+</head>
+<body>
+    <div class="page">
+        <form id="contactInfo" name="contactInfoFm" class="contact-info" method="post" action="" >
+            <p>请填写准确无误的信息，以便奖品顺利到家</p>
+            <div class="ipt-wrap">
+                <img src="images/icon-info-phonenum.png" alt="Phone Number">
+                <input type="text" value="" placeholder="请输入联系电话" maxlength="11">
+            </div>
+            <div class="ipt-wrap">
+                <img src="images/icon-info-username.png" alt="Phone Number">
+                <input type="text" value="" placeholder="请输入联系人" maxlength="6">
+            </div>
+            <div class="ipt-wrap">
+                <img src="images/icon-info-address.png" alt="Phone Number">
+                <input type="text" value="" placeholder="请输入联系地址">
+            </div>
+            <div class="ipt-wrap">
+                <input id="smt" type="submit" value="提交">
+            </div>
+        </form>
+    </div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script>
+        $('#smt').click(function(){
+            if(confirm("is ok?")){
+                $('#contactInfo').prop('action', 'submit-success.html');
+                $('#contactInfo').submit();
+            }
+        });
+    </script>
+</body>
+</html>
