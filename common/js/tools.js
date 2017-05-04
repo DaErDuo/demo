@@ -82,6 +82,71 @@ function loadingToast(txt) {
 }
 
 /**
+ * 只有在webview或者网页版的情况下有用
+ * 提示信息显示下屏幕下方
+ * msg 提示文字     ,
+ * prompt 提示框对象     ,
+ * position显示的位置   值为center显示在中间,值为bottom显示在底部
+ * delay默认为2s
+ */
+
+function promptMsg(msg,position,flag){
+    var flag = flag || 'true';
+    var prompt_st = null;
+    if(flag == 'true'){
+        clearTimeout(prompt_st);
+        $('#promptMsg').remove();
+    }else{
+        if($('#promptMsg').length) return;
+    }
+    var tags = '<div id="promptMsg"></div>';
+    $('body').append(tags);
+    var prompt = $('#promptMsg');
+    var obj = arguments[3] || {};
+
+    var w_width = window.innerWidth || document.documentElement.clientWidth,
+        screen_height = window.innerHeight || document.body.clientHeight,
+        prompt = prompt;
+    prompt.css({
+        'position':'fixed',
+        'padding':'8px 20px',
+        'max-width':'60%',
+        'display':'none',
+        'z-index':obj.zIndex || '5000',
+        'opacity':'0',
+        'background':obj.background || '#000',
+        'background-size':obj.backgroundSize || '100% 100%',
+        'color':obj.color || '#fff',
+        'font-size':'14px',
+        'line-height':obj.lineHeight || '18px',
+        'border-radius':'8px',
+        'background-repeat':'no-repeat'
+    });
+
+    var prompt_top = 0;
+    switch(position){
+        case 'center':
+            prompt_top = (screen_height-prompt.outerHeight())/2;
+            break;
+        case 'bottom':
+            prompt_top = (screen_height - prompt.outerHeight() - 60);
+            break;
+        default:
+            break;
+    }
+
+    prompt.html(msg).css({'top':prompt_top + 'px' ,'left':(w_width - prompt.innerWidth()) / 2 + 'px'}).show().animate({
+        opacity:'1'
+    },500);
+    prompt_st = setTimeout(function(){
+        prompt.animate({opacity:'0'},500,function(){
+            $(this).remove();
+            clearTimeout(prompt_st);
+        });
+    },obj.delay || 3000);
+}
+
+/**
  * Returns a random integer between min (included) and max (included)
  *
  * @param min(included)
