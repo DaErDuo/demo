@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <link href="../common/css/common.css" rel="stylesheet">
+    <link href="css/singer-apply.css" rel="stylesheet">
+    <title>第二季我是直播歌手全国海选赛报名</title>
+</head>
+<body>
+    <div class="page page-fill-info">
+        <div class="block block-content block-fill-info">
+            <div class="block-head"><img src="images/pic-bg-head.png"></div>
+            <div class="block-body">
+                <div class="body-title">填写资料</div>
+                <div class="body-content">
+                    <form id="fillInfoForm" action="" method="post">
+                        <div class="item-wrap">
+                            <p>姓名</p>
+                            <div class="ipt-wrap"><input type="text" name="name" value="" placeholder=""></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>性别</p>
+                            <div class="ipt-wrap">
+                                <div class="ipt-sex-wrap">
+                                    <input type="radio" name="sex" value="1" class="ipt-radio-sex-male"><span class="sex-male">男</span>
+                                </div>
+                                <div class="ipt-sex-wrap">
+                                    <input type="radio" name="sex" value="0" class="ipt-radio-sex-female"><span class="sex-female">女</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>手机号</p>
+                            <div class="ipt-wrap"><input type="text" name="phone" value="" placeholder="" maxlength="11"></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>微信号</p>
+                            <div class="ipt-wrap"><input type="text" name="wechat" value="" placeholder=""></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>QQ号</p>
+                            <div class="ipt-wrap"><input type="text" name="qq" value="" placeholder=""></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>参赛地区</p>
+                            <div class="slt-group">
+                                <div class="slt-wrap">
+                                    <select id="province" name="provinceId"><option value="0">省份</option></select>
+                                    <input type="hidden" id="provinceName" name="provinceName" value="">
+                                </div>
+                                <div class="slt-wrap">
+                                    <select id="city" name="cityId"><option value="0">城市</option></select>
+                                    <input type="hidden" id="cityName" name="cityName" value="">
+                                </div>
+                                <div class="slt-wrap">
+                                    <select id="area" name="areaId"><option value="0">地区</option></select>
+                                    <input type="hidden" id="areaName" name="areaName" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>直播平台名称（若没有开通直播则不用填写）</p>
+                            <div class="ipt-wrap"><input type="text" name="platformName" id="platformName" value="" placeholder=""></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>直播房间号</p>
+                            <div class="ipt-wrap"><input type="text" name="roomNum" id="roomNum" value="" placeholder=""></div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>半身照</p>
+                            <div id="halfImageContainer" class="ipt-wrap">
+                                <input id="halfImage" name="halfImage" type="hidden" value="">
+                                <div id="halfImageWrap" class="image-wrap"></div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>全身照</p>
+                            <div id="wholeImageContainer" class="ipt-wrap">
+                                <input id="wholeImage" name="wholeImage" type="hidden" value="">
+                                <div id="wholeImageWrap" class="image-wrap"></div>
+                            </div>
+                        </div>
+                        <div class="item-wrap">
+                            <p>才艺视频链接</p>
+                            <div class="ipt-wrap"><input type="text" id="videoUrl" name="videoUrl" value="" placeholder=""></div>
+                        </div>
+                        <div class="btn-wrap">
+                            <p>提示：请认真填写，审核通过几率更高</p>
+                            <a id="submitBtn" href="javascript: void(0);" class="btn">提交材料</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+        <!-- contact-->
+        <div class="block block-contact"><p>如有疑问，请添加客服 QQ 2522694003，我们将为您细心解答</p></div>
+    </div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script src="../common/js/plugins/jquery.validate.min.js"></script>
+    <script src="../common/js/jquery.validate.method.js"></script>
+    <script src="../common/js/tools.js"></script>
+    <script src="http://file.9zhiad.com/static/yaya/common-front/js/qiniu.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-98446265-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

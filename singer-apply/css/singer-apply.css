@@ -1,0 +1,402 @@
+a.btn {
+    display: block;
+    width: 80%;
+    margin: auto;
+    font-size: 1.125rem;
+    line-height: 2.5;
+    color: #FFF;
+    text-align: center;
+    background-image: linear-gradient(134deg, #FF0096 0%, #2507FF 100%);
+    box-shadow: 0 2px 4px 0 rgba(14,6,73,0.60), 0 3px 6px 0 rgba(188,15,224,0.56);
+    border-radius: 100px;
+}
+a.btn-disabled {
+    color: #543B6C;
+    background-image: linear-gradient(-134deg, #AB92A2 0%, #5D5388 100%);
+    box-shadow: 0 2px 4px 0 #32245B, 0 3px 6px 0 rgba(201,193,198,0.34);
+}
+
+.page {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    background: url("../images/pic-bg-top.png") top no-repeat, #0E0649;
+    background-size: 100%;
+}
+.block {
+    position: relative;
+    font-size: .875rem;
+    line-height: 1.5;
+    color: #FFF;
+}
+.block img.yaya-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 26.4%;
+}
+.block-top {
+    padding-top: 72.8%;
+}
+.block-top p {
+    width: 100%;
+    padding: 0 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #FD0097;
+    text-indent: 2rem;
+    text-align: justify;
+    box-sizing: border-box;
+}
+.block-countdown {
+    margin-top: 12px;
+}
+.block-countdown .countdown-title {
+    height: 18px;
+    font-size: 0;
+    text-align: center;
+}
+.block-countdown .countdown-title img {
+    height: 100%;
+}
+.countdown-wrap {
+    margin: 10px auto 14px;
+    text-align: center;
+}
+.countdown-wrap > div {
+    display: inline-block;
+    vertical-align: top;
+}
+.countdown-wrap .num {
+    position: relative;
+    width: 39px;
+    height: 39px;
+    font-size: 1.5rem;
+    line-height: 1.625;
+    color: #FFF;
+    background-image: linear-gradient(134deg, #FF0096 0%, #2507FF 100%);
+    border-radius: 8px;
+}
+.countdown-wrap .num span {
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    display: inline-block;
+    width: 100%;
+    font-size: .625rem;
+    line-height: 1;
+    color: #FD0097;
+}
+.countdown-wrap .mark {
+    position: relative;
+    width: 24px;
+    height: 39px;
+    background: url("../images/pic-mark-colon.png") center no-repeat;
+    -webkit-background-size: 12.5% 25%;
+    background-size: 12.5% 25%;
+}
+.countdown-wrap .mark img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    margin-top: -5px;
+    margin-left: -1.5px;
+}
+.block-countdown .btn-wrap p {
+    text-align: center;
+}
+.block-countdown .btn-wrap p span {
+    position: relative;
+    margin: auto;
+    font-size: 1.125rem;
+    line-height: 1;
+    color: #FD0097;
+}
+.block-countdown .btn-wrap p span:before,
+.block-countdown .btn-wrap p span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 16px;
+    margin-top: -8px;
+    background: url("../images/pic-lines.png") no-repeat;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+.block-countdown .btn-wrap p span:before {
+    left: -32px;
+}
+.block-countdown .btn-wrap p span:after {
+    right: -32px;
+}
+.btn-wrap {
+    margin-top: 34px;
+}
+.block-content {
+    padding: 12px 12px 0;
+}
+.block-body {
+    position: relative;
+    margin-top: 2px;
+    padding: 2px;
+    background-image: linear-gradient(134deg, #FF0096 0%, #2507FF 100%);
+    border-radius: 10px;
+}
+.block-body .body-title {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    width: 108px;
+    margin-left: -54px;
+    font-size: .875rem;
+    line-height: 22px;
+    color: #FFF;
+    text-align: center;
+    background-image: linear-gradient(134deg, #FF0096 0%, #2507FF 100%);
+    border-radius: 100px;
+}
+.block-body .body-title:before,
+.block-body .body-title:after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: url("../images/pic-star.png") no-repeat;
+    background-size: 100% 100%;
+}
+.block-body .body-title:before {
+    top: -5px;
+    left: -7px;
+    width: 27px;
+    height: 23px;
+}
+.block-body .body-title:after {
+    right: 0;
+    bottom: 0;
+    width: 11px;
+    height: 9px;
+}
+.block-body .body-content {
+    padding: 24px 10px 20px;
+    background: #211961;
+    border-radius: 10px;
+}
+.way-of-participation .body-content p {
+    position: relative;
+    padding-left: 70px;
+}
+.way-of-participation .body-content p span {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.past-players-style .body-title {
+    width: 114px;
+}
+.past-players-style ul li {
+    margin-bottom: 20px;
+}
+.past-players-style ul li:last-child {
+    margin-bottom: 0;
+}
+.past-players-style .image-wrap {
+    margin-bottom: 10px;
+}
+.past-players-style .image-wrap img {
+    width: 100%;
+    border-radius: 8px;
+}
+.block-contact {
+    padding: 20px 12px;
+}
+.block-contact p {
+    color: #6357BD;
+}
+.page-fill-info {
+    background: #0E0649;
+}
+.block-fill-info {
+    padding: 10px 0 0;
+}
+.block-fill-info .block-body {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+.block-fill-info .body-content {
+    padding: 24px 0 0;
+    background: none;
+}
+.block-fill-info .item-wrap {
+    margin-bottom: 14px;
+    padding: 0 12px;
+}
+.block-fill-info .item-wrap p {
+    display: block;
+    font-size: .875rem;
+    line-height: 1;
+    color: #7B71BD;
+}
+.block-fill-info .item-wrap .ipt-wrap,
+.block-fill-info .item-wrap .slt-wrap {
+    font-size: 0;
+    margin-top: 10px;
+}
+.block-fill-info .item-wrap input[type="text"],
+.block-fill-info .item-wrap input[type="number"],
+.block-fill-info .item-wrap select {
+    width: 100%;
+    padding: 14px 20px;
+    font-size: .875rem;
+    color: #FD0097;
+    background: #423C72;
+    border-radius: 100px;
+    box-sizing: border-box;
+}
+.block-fill-info .item-wrap .ipt-sex-wrap {
+    display: inline-block;
+    width: 102px;
+}
+.block-fill-info .item-wrap .ipt-sex-wrap input {
+    width: 38px;
+    height: 38px;
+    background: url("../images/pic-sex-male.png") no-repeat;
+    background-size: 200% 100%;
+}
+.block-fill-info .item-wrap .ipt-sex-wrap input.ipt-radio-sex-female {
+    background-image: url("../images/pic-sex-female.png");
+}
+.block-fill-info .item-wrap .ipt-sex-checked input.ipt-radio-sex-male {
+    background-position-x: -38px;
+    background-image: url("../images/pic-sex-male.png");
+}
+.block-fill-info .item-wrap .ipt-sex-checked input.ipt-radio-sex-female {
+    background-position-x: -38px;
+    background-image: url("../images/pic-sex-female.png");
+}
+.block-fill-info .item-wrap .ipt-sex-wrap span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: .875rem;
+    line-height: 38px;
+    vertical-align: top;
+    color: #433C72;
+}
+.block-fill-info .item-wrap .ipt-sex-checked span.sex-male {
+    color: #00C2F7;
+}
+.block-fill-info .item-wrap .ipt-sex-checked span.sex-female {
+    color: #FD0097;
+}
+.block-fill-info .item-wrap select {
+    position: relative;
+    padding: 14px 22px 14px 14px;
+}
+.block-fill-info .item-wrap .slt-group {
+    font-size: 0;
+}
+.block-fill-info .item-wrap .slt-wrap {
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    margin-right: 5%;
+}
+.block-fill-info .item-wrap .slt-wrap:last-child {
+    margin-right: 0;
+}
+.block-fill-info .item-wrap .slt-wrap:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 10px;
+    height: 8px;
+    margin-top: -4px;
+    background: url("../images/pic-arrow-down.png") no-repeat;
+    background-size: 100%;
+}
+.block-fill-info .item-wrap .image-wrap,
+.block-fill-info .item-wrap input[type="file"] {
+    width: 100px;
+    height: 100px;
+}
+.block-fill-info .item-wrap .image-wrap {
+    position: relative;
+    border-radius: 10px;
+    background: url("../images/pic-camera.png") center no-repeat,  #423C72;
+    background-size: 44% 35%;
+    overflow: hidden;
+}
+.block-fill-info .item-wrap .image-wrap img {
+    width: 100%;
+    height: 100%;
+}
+.block-fill-info .item-wrap input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.block-fill-info .btn-wrap {
+    margin-top: 0;
+}
+.block-fill-info .btn-wrap p {
+    padding: 0 10%;
+    margin-bottom: 10px;
+    font-size: .875rem;
+    line-height: 1;
+    color: #FD0097;
+    text-align: center;
+}
+.page-success {
+    min-height: 100%;
+    background: url("../images/pic-bg-top.png") top no-repeat,
+                url("../images/pic-bg-bottom.png") bottom no-repeat,
+                #0E0649;
+    background-size: 100%, 100%;
+}
+.page-success .block-top {
+    padding-top: 78.4%;
+}
+.page-success .block-tips,
+.page-success .block-share {
+    padding-bottom: 28%;
+}
+.page-success .block-share {
+    margin-top: -28%;
+}
+.page-success p {
+    font-size: 1.125rem;
+    line-height: 1.67;
+    color: #FD0097;
+    text-align: center;
+}
+.page-success .image-wrap {
+    text-align: center;
+}
+.page-success .image-wrap img {
+    width: 44.3%;
+}
+.page-success .share-wrap {
+    margin-top: 10px;
+}
+.page-success .share-wrap p {
+    padding: 0 12px;
+    text-align: left;
+}
+.page-success .share-wrap a.btn {
+    margin-top: 24px;
+}
+.page-success .block-contact {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 11.2%;
+}
+.page-success .block-contact p {
+    font-size: .875rem;
+    line-height: 20px;
+    color: #6357BD;
+    text-align: left;
+}
