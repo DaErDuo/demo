@@ -1,6 +1,25 @@
 /**
- * Created by Sean on 2016/10/10.
+ * date format
+ *
+ * @param f (eg: 'yyyy-MM-dd hh:mm:ss.S', 'yyyy年MM月dd日 hh小时mm分钟ss秒S毫秒')
+ *
  */
+Date.prototype.format = function(f) {
+    var o = {
+        "M+" : this.getMonth()+1, //month
+        "d+" : this.getDate(), //day
+        "h+" : this.getHours(), //hour
+        "m+" : this.getMinutes(), //minute
+        "s+" : this.getSeconds(), //second
+        "q+" : Math.floor((this.getMonth()+3)/3), //quarter
+        "S"  : this.getMilliseconds() //millisecond
+    };
+    if (/(y+)/.test(f))
+        f = f.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if(new RegExp("(" + k + ")").test(f)) f = f.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length)); return f;
+};
+
 /**
  * detect platform
  *
@@ -144,6 +163,18 @@ function promptMsg(msg,position,flag){
             clearTimeout(prompt_st);
         });
     },obj.delay || 3000);
+}
+
+/**
+ * 获取 Url 参数值
+ *
+ * @param {String} name 参数名称
+ * @return {Object} param  返回参数值
+ */
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg); // 匹配目标参数
+    if (r != null) return decodeURI(r[2]); return null; // 返回参数值
 }
 
 /**

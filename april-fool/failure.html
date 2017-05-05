@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="../common/css/common.css" rel="stylesheet">
+    <link href="css/april-fool.css" rel="stylesheet">
+    <title>40 秒让你 get 狗仔的特殊技能</title>
+</head>
+<body>
+    <div class="page page-result">
+        <div class="block block-frame">
+            <div class="photo-frame">
+                <img src="images/pic-failure.png">
+            </div>
+        </div>
+        <div class="block block-text"><p id="failureMsg"></p></div>
+        <div class="block block-result-btn">
+            <div class="btn-wrap"><a class="btn btn-result" id="btn-result-back" href="javascript: void(0);" ><img src="images/pic-btn-result-normal.png"><span>回炉再造</span></a></div>
+            <div class="btn-wrap"><a class="btn btn-result" href="javascript: void(0);" id="shareBtn"><img src="images/pic-btn-result-normal.png"><span>挖掘身边更多狗仔</span></a></div>
+        </div>
+
+        <p id="downloadLink" class="link">来<a id="downloadYaYa" href="#">牙牙关注</a>，侃一手八卦</p>
+    </div>
+
+    <script src="../common/js/zepto.min.js"></script>
+    <script src="../common/js/tools.js"></script>
+    <script>
+        var random = getUrlParam('random');
+        var failureTxt = [
+            '狗仔界的泥石流，偷拍技术有待提高！来牙牙关注，让贵圈老司机带带你！',
+            '小样儿，这都能被发现！你到底还行不行？不如来牙牙关注 GET 更多的娱乐八卦吧！',
+            '悲催！偷拍被发现后果很严重! 牙牙关注，GET 第一手资讯，偷拍那都不是事儿！'
+        ];
+        $('#failureMsg').html(failureTxt[random != null && random >= 0 && random <= 2 ? random : 0]);
+
+        $('#shareBtn').on('click', function() {
+            $('.page').append('<div class="tips-guide"></div>');
+            $('.tips-guide').on('click', function(){ $(this).remove(); });
+        });
+
+        $('#btn-result-back').on('click',function(){
+            location.replace('scene-map.html');
+        });
+
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-98446265-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

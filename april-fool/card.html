@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="../common/css/common.css" rel="stylesheet">
+    <link href="css/april-fool.css" rel="stylesheet">
+    <title>40 秒让你 get 狗仔的特殊技能</title>
+</head>
+<body>
+    <div class="page page-result page-card">
+        <div class="block block-frame">
+            <div class="card-frame">
+                <div class="card-wrap">
+                    <p class="title">全球狗仔协会</p>
+                    <p class="avatar"><img src="images/pic-paparazzi-avatar.png"></p>
+                    <div class="person-info">
+                        <p>姓名：<span id="name"></span></p>
+                        <p>职务：<span id="title"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block block-result-btn">
+            <div class="btn-wrap"><a class="btn btn-result" href="javascript: void(0);" id="shareBtn"><img src="images/pic-btn-result-normal.png"><span>炫耀一下</span></a></div>
+            <div class="btn-wrap"><a class="btn btn-result" id="btn-result-back" href="javascript: void(0);" ><img src="images/pic-btn-result-normal.png"><span>继续修炼</span></a></div>
+        </div>
+
+        <p id="downloadLink" class="link">来<a id="downloadYaYa" href="#">牙牙关注</a>，侃一手八卦</p>
+    </div>
+
+    <script src="../common/js/zepto.min.js"></script>
+    <script src="../common/js/tools.js"></script>
+    <script>
+        var name = getUrlParam('name');
+        var level = getUrlParam('level');
+        var titleTxt = ['新晋狗仔', '最具潜力狗仔', '中国第一狗仔'];
+        var sensitiveWords = ['习近平','彭丽媛','彭妈妈','胡锦涛','江泽民','毛泽东','邓小平','习大大','温家宝','曹建明','李克强','刘云山','王岐山','俞正声','张德江','李源潮','张高丽','刘延东','常万全','杨洁篪','刘少奇','朱德','周恩来','宋祖英'];
+
+        for (var i = 0; i < sensitiveWords.length; i++) {
+            if (name && name.indexOf(sensitiveWords[i]) != -1) {
+                name = '某某某';
+                break;
+            }
+        }
+        $('#name').text(name);
+        $('#title').text(titleTxt[level != null && level >= 0 && level <= 2 ? level : 0]);
+
+        $('#shareBtn').on('click', function() {
+            $('.page').append('<div class="tips-guide"></div>');
+            $('.tips-guide').on('click', function(){ $(this).remove(); });
+        });
+
+        $('#btn-result-back').on('click',function(){
+            location.replace('scene-map.html');
+        });
+
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-98446265-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
