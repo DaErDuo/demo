@@ -656,7 +656,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
                     if (idx != lis_length - 1) {  // 非最后一个
                         $(ele).parents('li.show-card').css('margin-bottom', '50px').slideUp(900, function() {
                             if (idx < lis_length - 2) {
-                                $($lis.get(idx + 2)).css({'display': 'list-item', 'opacity': .3, 'margin-bottom': 0});
+                                //$($lis.get(idx + 2)).css({'display': 'list-item', 'opacity': .3, 'margin-bottom': 0});
                                 setTimeout(function(){
                                     $($lis.get(idx + 2)).css({'display': 'list-item', 'opacity': 1});
                                 }, 600);
