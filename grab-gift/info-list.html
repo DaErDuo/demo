@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- 
+    <link href="../../common/css/common.css" rel="stylesheet">
+    <link href="css/grab-gifts.css" rel="stylesheet">
+    -->
+    <title>动态列表</title>
+</head>
+<body>
+    <div class="page">
+        <div class="block-dynamic">
+        	<div id="dynamicList" class="block-body block-dynamic-list"></div>
+        </div>
+    </div>
+    
+    <!-- 
+    <script src="../../common/js/jquery-1.11.3.min.js"></script>
+    <script src="../../common/js/client.interactive.js"></script>
+    <script src="js/data.js"></script>
+    -->
+    <script>
+    (function(){
+		var timespan = +new Date();
+		var cssUrlArr = ['../../common/css/common.css', 'css/grab-gifts.css'];
+		var jsUrlArr = [
+					'../../common/js/jquery-1.11.3.min.js',
+					'../../common/js/client.interactive.js',
+					'../../common/js/plugins/jquery.dotdotdot.min.js',
+					'js/url.js',
+					'js/data.js',
+					'js/info.js'
+					];
+
+		for(var i = 0 , len = cssUrlArr.length ; i < len; i++){
+			document.write('<link href="'+ (cssUrlArr[i]+'?v='+timespan) +'" rel="stylesheet">');
+		}
+
+		for(var i = 0 , len = jsUrlArr.length ; i < len; i++){
+			document.write('<script src="' + (jsUrlArr[i]+'?v='+timespan) + '"><\/script>');
+		}
+	})();
+    </script>
+</body>
+</html>

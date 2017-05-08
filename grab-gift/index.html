@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <link href="../common/css/common.css" rel="stylesheet">
+    <link href="../common/css/swiper.min.css" rel="stylesheet">
+    <link href="css/grab-gifts.css" rel="stylesheet">
+    <title>同跨年狂欢 抢吉时好礼</title>
+</head>
+<body>
+	<input type="hidden" id="currentTime" value="">
+	<input type="hidden" id="partyStartTime" value="">
+	<input type="hidden" id="partEndTime" value="">
+    <div class="page">
+        <!-- top banner -->
+        <div class="block">
+            <div class="image-wrap"><img src="images/pic-bg-banner1.png" alt="Banner"></div>
+            <div class="logo-wrap">
+                <img src="images/pic-logo-YaYa.png" alt="YaYa Logo">
+            </div>
+        </div>
+
+        <!-- gift area -->
+        <div id="giftList" class="block block-gift-carousel" style="display:none;">
+	        <div class="block-head">
+		        <img src="images/pic-bg-title.png" alt="Title">
+		        <span>吉时送大礼</span>
+	        </div>
+	        <div class="block-body sky-carousel sc-no-select">
+	        	<a class="btn btn-rules" href="javascript: void(0);" onclick="$('#rulesPopup').show()"><img src="images/icon-question-mark.png" alt="Question Mark">活动规则</a>
+				<div class="partyAreaDownTime" id="partyAreaDownTime">
+					<div class="redTimeDown" id="redTimeDown" >
+						<div class="partyAreaDownBtn box-vm" id="partyAreaDownBtn"></div>
+						<div id="grabEedCountDownList"></div>
+					</div>
+					<img src="images/bg_left_pic.png" class="bg_left_pic">
+					<img src="images/bg_right_pic.png" class="bg_right_pic">
+				</div>
+			</div>
+        </div>
+
+        <!-- activity area 动态 -->
+        <div id="activity" class="block"></div>
+
+        <!-- TV vs TV -->
+        <div id="tvPKtv" class="block"></div>
+
+        <!-- shows -->
+        <div id="showList" class="block"></div>
+
+        <!-- dynamic area -->
+        <div id="dynamicList" class="block block-dynamic"></div>
+
+    </div>
+
+    <!-- gift surprise -->
+    <div id="giftSurprise" class="gift-surprise" style="display: none;"></div>
+
+    <!-- popup box: winning -->
+    <div id="winningPopup" class="popup-box-wrapper" style="display: none;">
+    	<div class="box-vm popup-box-wrapper">
+	        <div class="popup-box popup-box-gift popup-box-gift-winning">
+	            <div class="gift-light"><img src="images/pic-popup-gif-light.png" alt="Gift Light"></div>
+	            <div class="image-wrap"><img src="" alt="Prize" id="winPrize" width="140" height="140"></div>
+	            <p class="txt">恭喜您获得<br><i id="prizeName"></i></p>
+	            <a class="btn btn-big" href="javascript: void(0);" onclick="receive()">马上去领取</a>
+	        </div>
+    	</div>
+    </div>
+    
+    <!-- popup box: empty -->
+    <div class="popup-box-wrapper" id="errorPopup" style="display: none;">
+    	<div class="popup-box-wrapper box-vm">
+	        <div class="popup-box popup-box-gift popup-box-gift-empty">
+	            <div class="image-wrap"><img src="images/pic-popup-empty-box.png" alt="Prize"></div>
+	            <p class="txt">哎呀,你离奖品仅有0.01公分<br>洗洗手等下再来</p>
+	            <a class="btn btn-big" href="javascript: void(0);" onclick="$('#errorPopup').hide()">返回首页</a>
+	        </div>
+    	</div>
+    </div>
+
+    <!-- popup box: rules -->
+    <div id="rulesPopup" class="popup-box-wrapper" style="display: none;">
+    	<div class="popup-box-wrapper box-vm">
+	        <div class="popup-box popup-box-rules">
+	            <div class="title"><span>活动规则</span></div>
+	            <ol class="rules">
+	                <li>活动时间：2016年12月30日-2017年1月1日</li>
+	                <li>活动期间首次访问都可参与夺宝一次，间隔6小时后，可再次参与；</li>
+	                <li>奖品包括实物和优惠券，中奖用户可在牙牙关注APP－我的－我的奖品 中查看；</li>
+	                <li>奖品为实物的用户，请在24小时内填写领奖信息，超过24小时未填或填写错误致无法派奖，视为弃权；</li>
+	                <li>优惠券的使用请参照具体的奖品说明；</li>
+	                <li>如有疑问，可前往牙牙关注官方微博、微信公众号咨询；</li>
+	                <li>牙牙关注保留在法律规定范围内对此活动的解释权。</li>
+	            </ol>
+	            <a class="btn btn-close" href="javascript: void(0);"></a>
+	        </div>
+    	</div>
+    </div>
+
+    <!-- popup box: show card -->
+    <div id="programPopup" class="popup-box-wrapper" style="display: none;">
+        <div class="popup-box popup-box-show-card">
+            <div class="title"><span>节目名称</span></div>
+            <p class="show-name"></p>
+            <div class="title"><span>表演嘉宾</span></div>
+            <ul class="star-list"></ul>
+            <a class="btn btn-close" href="javascript: void(0);"></a>
+        </div>
+    </div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+	<script src="../common/js/plugins/jquery.rotate.min.js"></script>
+	<script src="../common/js/plugins/swiper.jquery.min.js"></script>
+	<script src="../common/js/plugins/jquery.dotdotdot.min.js"></script>
+    <script src="../common/js/tools.js"></script>
+    <script src="js/url.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+	<script>
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-98446265-1', 'auto');
+        ga('send', 'pageview');
+	</script>
+</body>
+</html>
