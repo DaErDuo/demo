@@ -1,9 +1,4 @@
 $(function(){
-    // preload images
-    //preloadImg([
-        //'images/pic-bg-btn-press.png',
-    //]);
-
     // button run on touch
     //$(".turnplate").rotate(720);
     //$('#run').on('tap', playGame);
@@ -36,7 +31,16 @@ $(function(){
 // run touch end
 var initAngle = 0;
 function playGame() {
-    var self = $(this);
+    var self = $(this),
+        playTimes = $('#playTimes');
+    var count = playTimes.text();
+    count--;
+    if (count < 0) {
+        promptMsg('抽奖机会已用完~', 'center');
+        return;
+    } else {
+        playTimes.text(count);
+    }
 
     var i = 0, light = $('#cjPlate').find('.light');
     var marqueeTimer = window.setInterval(function(){
@@ -49,7 +53,7 @@ function playGame() {
     }, 300);
 
     var randomNum = getRandomIntInclusive(0, 5);
-    console.log(randomNum);
+    // console.log(randomNum);
     $(".turnplate").rotate({
         duration: 12000,
         //duration: 7200,
@@ -64,19 +68,17 @@ function playGame() {
         callback: function() {
             clearInterval(marqueeTimer);
             initAngle = 60 - 60 * randomNum;
-            console.log('initAngle = ' + initAngle);
+            // console.log('initAngle = ' + initAngle);
 
             setTimeout(function(){
-                $('#winning').show();
+                var $winning = $('#winning');
+                $winning.find('.pic-prize img').prop('src', 'images/prize/pic-prize-' + randomNum + '.png');
+                $winning.find('.prize-name').text($($('#cjPlate').find('.prize').get(randomNum)).text());
+                $winning.show();
+
                 $(self).on('tap', playGame);
             }, 1000);
         }
     });
     $(this).off('tap', playGame);
-}
-
-function preloadImg(arrayOfImages) {
-    $(arrayOfImages).each(function(){
-        $('<img/>')[0].src = this;
-    });
 }

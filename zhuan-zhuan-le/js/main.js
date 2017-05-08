@@ -84,7 +84,9 @@ function run_touch_start() {
 function run_touch_end() {
     $(this).find('img').prop('src', 'images/icon-btn-run.png');
 
-    playGame(this, 4, 3);
+    var random = getRandomIntInclusive(0, 7);
+    console.log('random = ' + random);
+    playGame(this, 4, random);
 }
 
 // play game
@@ -123,7 +125,15 @@ function playGame(element, startIndex, endIndex) {
                 clearInterval(marqueeTimer);
 
                 setTimeout(function(){
-                    $('#winning').show();
+                    if (endIndex == 0) {
+                        $('#notWinning').show();
+                    } else {
+                        var $winning = $('#winning');
+                        var prizeName = $('#cjPlate').find('.prize' + endIndex + ' .prize-name').text();
+                        $winning.find('.pic-prize').prop('src', 'images/prize/pic-prize-' + endIndex + '.png');
+                        $winning.find('.prize-name').text(prizeName);
+                        $winning.show();
+                    }
 
                     $(element).on('touchstart', run_touch_start).on('touchend', run_touch_end);
                 }, 400);

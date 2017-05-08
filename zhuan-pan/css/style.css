@@ -6,9 +6,11 @@ html, body, div, ul, ol, li, p, span, img, a, form, input, h2 {
     outline: 0;
     border: 0;
 }
+html, body {
+    height: 100%;
+}
 body {
     font-family: "PingFang SC", "STHeiti", "Microsoft YaHei", "宋体";
-    background: #4D2671;
 }
 a {
     text-decoration: none;
@@ -82,7 +84,11 @@ a.btn-share img {
 /******************************** main style *********************************/
 .page {
     width: 100%;
+    min-height: 100%;
+    max-width: 640px;
+    margin: auto;
     overflow: hidden;
+    background: #4D2671;
 }
 .page .top {
     position: relative;
@@ -559,6 +565,21 @@ span.prize-name {
 .page-success a.btn-share {
     margin-top: 22px;
 }
+/* confirm box style begin */
+.confirm-wrapper{position:fixed;top:0;right:0;bottom:0;left:0;z-index:999;background:rgba(0,0,0,.618)}
+.confirm-wrapper .confirm-box{position: absolute;top: 30%;left: 50%;z-index: 1000;width:300px;margin-left:-150px;border-radius:12px;background:#fff}
+.confirm-box .title{margin:20px auto 0;font-size:1rem;line-height:1;font-weight:700;color:#333;text-align:center}
+.confirm-box ul{margin:12px auto}
+.confirm-box ul li{margin-bottom:6px;padding:0 12px;font-size:.875rem;line-height:1.4}
+.confirm-box ul li:last-child{margin-bottom:0}
+.confirm-box ul li span{width:56px;float:left;color:#666;text-align:justify}
+.confirm-box ul li span i{display:inline-block;width:14px}
+.confirm-box ul li p{padding-left:56px;color:#333;text-align:justify}
+.confirm-box .btn-wrapper{font-size:0}
+.confirm-box .btn-wrapper a{display:inline-block;width:50%;font-size:1rem;line-height:3;text-align:center;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-top:1px solid rgba(0,0,0,.08)}
+.confirm-box .btn-wrapper a:first-child{color:#666}
+.confirm-box .btn-wrapper a:last-child{color:#e73850;border-left:1px solid rgba(0,0,0,.08)}
+/* confirm box style end */
 
 /********************************* page share ********************************/
 .page-share {

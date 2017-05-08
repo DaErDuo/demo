@@ -8,40 +8,52 @@
     <title>填写领奖信息</title>
 </head>
 <body>
-<div class="page">
-    <form id="contactInfo" class="contact-info" method="post" action="submit-success.html" >
-        <p>请填写准确无误的信息，以便奖品顺利到家</p>
-        <div class="ipt-wrap">
-            <div class="ipt-icon"><img src="images/icon-info-phonenum.png" alt="Phone Number"></div>
-            <input type="text" value="" placeholder="请输入联系电话" maxlength="11">
-        </div>
-        <div class="ipt-wrap">
-            <div class="ipt-icon"><img src="images/icon-info-username.png" alt="Contact Person"></div>
-            <input type="text" value="" placeholder="请输入联系人">
-        </div>
-        <div class="ipt-wrap">
-            <div class="ipt-icon"><img src="images/icon-info-address.png" alt="Address"></div>
-            <input type="text" value="" placeholder="请输入联系地址">
-        </div>
-        <div class="ipt-wrap">
-            <input class="btn" type="button" value="提交" onclick="javascript: form.submit();">
-        </div>
-    </form>
+    <div class="page">
+        <form id="contactInfo" class="contact-info" method="post" action="submit-success.html" >
+            <p>请填写准确无误的信息，以便奖品顺利到家</p>
+            <div class="ipt-wrap">
+                <div class="ipt-icon"><img src="images/icon-info-phonenum.png" alt="Phone Number"></div>
+                <input type="text" value="" placeholder="请输入联系电话" maxlength="11">
+            </div>
+            <div class="ipt-wrap">
+                <div class="ipt-icon"><img src="images/icon-info-username.png" alt="Contact Person"></div>
+                <input type="text" value="" placeholder="请输入联系人">
+            </div>
+            <div class="ipt-wrap">
+                <div class="ipt-icon"><img src="images/icon-info-address.png" alt="Address"></div>
+                <input type="text" value="" placeholder="请输入联系地址">
+            </div>
+            <div class="ipt-wrap">
+                <input id="submitBtn" class="btn" type="button" value="提交">
+            </div>
+        </form>
 
-    <div class="confirm-wrapper" style="display: none;">
-        <div class="confirm-box">
-            <div class="title">请确认以下信息</div>
-            <ul>
-                <li><span>电话：</span><p id="cfmMobile">13812345678</p></li>
-                <li><span>联系人：</span><p id="cfmUsername">老炮儿</p></li>
-                <li><span>地址：</span><p id="cfmAddress">深圳市高新南六道6号迈科龙大厦12楼牙牙关注</p></li>
-            </ul>
-            <div class="btn-wrapper">
-                <a id="cfmCancel" href="javascript: void(0);">取消</a>
-                <a id="cfmConfirm" href="javascript: void(0);">确认</a>
+        <div id="confirmBox" class="confirm-wrapper" style="display: none;">
+            <div class="confirm-box">
+                <div class="title">请确认以下信息</div>
+                <ul>
+                    <li><span>电话：</span><p id="cfmMobile">13812345678</p></li>
+                    <li><span>联系人：</span><p id="cfmUsername">老炮儿</p></li>
+                    <li><span>地址：</span><p id="cfmAddress">深圳市高新南六道6号迈科龙大厦12楼牙牙关注</p></li>
+                </ul>
+                <div class="btn-wrapper">
+                    <a id="cfmCancel" href="javascript: void(0);">取消</a>
+                    <a id="cfmConfirm" href="javascript: location.href = 'submit-success.html';">确认</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script>
+        $('#submitBtn').click(function() {
+            var $confirmBox = $('#confirmBox');
+            $confirmBox.show();
+
+            $('#cfmCancel').click(function () {
+                $confirmBox.hide();
+            });
+        });
+    </script>
 </body>
 </html>

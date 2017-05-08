@@ -23,19 +23,9 @@
                 <input type="text" value="" placeholder="请输入联系地址">
             </div>
             <div class="ipt-wrap">
-                <input id="smt" type="submit" value="提交">
+                <input id="submitBtn" type="button" value="提交" onclick="javascript: location.href = 'submit-success.html';">
             </div>
         </form>
     </div>
-
-    <script src="../common/js/jquery-1.11.3.min.js"></script>
-    <script>
-        $('#smt').click(function(){
-            if(confirm("is ok?")){
-                $('#contactInfo').prop('action', 'submit-success.html');
-                $('#contactInfo').submit();
-            }
-        });
-    </script>
 </body>
 </html>
