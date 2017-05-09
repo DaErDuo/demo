@@ -36,7 +36,7 @@ function initPage() {
 	} else {
 		$('#giftList').remove();
 	}
-    // playAnimation();
+    playAnimation();
 	
     // 吉时送大礼
     initGiftArea(redpack_key, isover_key, infoList);
@@ -544,7 +544,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
         setTimeout(function() {
             that.removeClass('btn-yellow-active').on('tap', voteA);
         }, 5000);
-        voteTV(tvId); // 后台 TV 票数加一
+        // voteTV(tvId); // 后台 TV 票数加一
     }
 
     // vote B
@@ -557,7 +557,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
         setTimeout(function() {
             that.removeClass('btn-blue-active').on('tap', voteB);
         }, 5000);
-        voteTV(tvId); // 后台 TV 票数加一
+        // voteTV(tvId); // 后台 TV 票数加一
     }
 
     // vote program
@@ -571,7 +571,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
         setTimeout(function() {
             that.removeClass('btn-zan-active').on('tap', voteProgramCard);
         }, 5000);
-        voteProgram($(this).data('tvId'), $(this).data('programId')); // 后台节目票数加一
+        // voteProgram($(this).data('tvId'), $(this).data('programId')); // 后台节目票数加一
     }
 
     // tv vote plus plus
@@ -603,7 +603,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
 
             var li_html = '';
             for (var i = 0; i < idsArr.length; i++) {
-                li_html += '<li>' + namesArr[i] + '<a class="btn btn-to-star-home" href="javascript: toClient(4, \'' + idsArr[i] + '\');">去看 Ta</a></li>';
+                li_html += '<li>' + namesArr[i] + '<a class="btn btn-to-star-home" href="javascript: void(0);">去看 Ta</a></li>';
             }
 
             $programPopup.find('.show-name').text(title);
@@ -737,7 +737,7 @@ function initDynamicArea(dynamicList) {
  *
  */
 function toClient(type, id) {
-    clientWebGotoNative({ type: type, id: id});
+    // clientWebGotoNative({ type: type, id: id});
 }
 
 /**
@@ -866,7 +866,8 @@ function voteProgram(tvId, programId) {
 function giftSurpriseTags(){
 	var tags = '';
 	
-	tags += '<div class="gift-title"><img src="images/pic-title-2017.png" alt="2017"></div>'
+	tags += '<div class="gift-surprise-wrap">'
+        +       '<div class="gift-title"><img src="images/pic-title-2017.png" alt="2017"></div>'
 		+	    '<div class="gift-wrapper">'
 		+	        '<div class="image-wrap pic-gift-bg"><img src="images/pic-gift-bg.png" alt="Gift Background"></div>'
 		+	        '<div class="image-wrap pic-gift"><img src="images/pic-gift.png" alt="Gift"></div>'
@@ -891,7 +892,8 @@ function giftSurpriseTags(){
 		+	        '<div class="image-wrap pic-buildings"><img src="images/pic-bg-buildings.png" alt="Buildings"></div>'
 		+	        '<div class="image-wrap pic-light"><img src="images/pic-bg-light.png" alt="Light"></div>'
 		+	    '</div>'
-		+	    '<div class="ad-wrapper"><img src="images/pic-ad.png" alt="Ad"></div>';
+		+	    '<div class="ad-wrapper"><img src="images/pic-ad.png" alt="Ad"></div>'
+		+	'</div>';
 	return tags;
 }
 
