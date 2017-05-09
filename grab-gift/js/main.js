@@ -32,14 +32,14 @@ function initPage() {
 	
 	if (redpack_key == 1) { // 后台配整点抢红包,1-显示,0-不显示
 		$('#giftList').show();
-		// initActive();
+		 initActive();
 	} else {
 		$('#giftList').remove();
 	}
-    playAnimation();
+    //playAnimation();
 	
     // 吉时送大礼
-    initGiftArea(redpack_key, isover_key, infoList);
+    // initGiftArea(redpack_key, isover_key, infoList);
     // 活动大作战
     initActivityArea(active_key, listParty, '');
     // 跨年盛宴
@@ -54,35 +54,28 @@ function initPage() {
  */
 function initActive(){
 	var href = location.href;
-	var session = href.getUrlParamVal('session');
-	
+	var session = '123';
+
 	// 已登录, 判断当前时间段有没有抢过红包
-	var url = baseUrl + '/h5/interaction/hit/check';
-	var params = {
-		session : session,
-		udid : href.getUrlParamVal('udid')
-	};
-	$.post(url,params,function(data){ 
-		if(data.type == 'success'){ 
-			var nowTime = data.object.nowTime;
-			var endTime = data.object.endTime;
-			var startTime = data.object.startTime;
-			if(nowTime < endTime){// 未结束
-				if(data.object.canHit){ // 能抢
+	// var url = baseUrl + '/h5/interaction/hit/check';
+	// var params = {
+	//	session : session,
+	//	udid : href.getUrlParamVal('udid')
+	// };
+	// $.post(url,params,function(data){
+	//	if(data.type == 'success'){
+			if(currTime < endTime){// 未结束d
+				if(canHit){ // 能抢
 					$('#grabEedCountDownList').html('').hide(); // 倒计时
 					//点按钮播放动画
 					$('#partyAreaDownBtn').html('<input type="button" value="点我抢大礼" id="partyAreaDownButton" onclick="'+ (!session?'clientCheckLogin()':'playAnimation()') +'" class="partyAreaDownButton">');
 				}else{ // 不能参与
-					if(data.object.nextTime != 0){ // 有下一场
+					if(nextTime != 0){ // 有下一场
 						if(!session){ // 未登录
 							$('#grabEedCountDownList').html('').hide();
 							$('#partyAreaDownBtn').html('<input type="button" value="点我抢大礼" id="partyAreaDownButton" onclick="clientCheckLogin()" class="partyAreaDownButton">')
 						}else{ // 已登录
-							$('#currentTime').val((new Date(data.object.nowTime)).format('yyyy-MM-dd hh:mm:ss'));
-							$('#partyStartTime').val((new Date(data.object.nextTime)).format('yyyy-MM-dd hh:mm:ss'));
-							$('#partEndTime').val((new Date(data.object.endTime)).format('yyyy-MM-dd hh:mm:ss'));
-							
-							$('#grabEedCountDownList').html(downTimeTags({msg:(nowTime < startTime ? '距离惊喜开启还有' : '下一波大礼即将来袭')})).show(); // 倒计时
+							$('#grabEedCountDownList').html(downTimeTags({msg:(currTime < startTime ? '距离惊喜开启还有' : '下一波大礼即将来袭')})).show(); // 倒计时
 							//点按钮播放动画
 							$('#partyAreaDownBtn').html('').removeClass('box-vm').hide();//按钮
 						}
@@ -98,10 +91,8 @@ function initActive(){
 				$('#grabEedCountDownList').html('<div class="countDownTip" id="countDownTip">客官，本场活动已经打烊了，去首页寻找其他精彩活动吧。</div>').show()
 				.find('.countDownTip').css({'padding':'20px 20px 0','text-align':'left'});
 			}
-			
-			
-		}
-	},'json');
+	//	}
+	// },'json');
 }
 
 /**
@@ -114,6 +105,7 @@ function downTimeTags(data){
 	tags +=	'<div class="countDownTip" id="countDownTip">'+data.msg+'</div>'
 		+	'<div class="grabEedCountDown box-vm" id="grabEedCountDown"></div>'
 		+	'<div class="grabEedCountDownTip box-vm">'
+		+		'<span>天</span>'
 		+		'<span>小时</span>'
 		+		'<span>分</span>'
 		+		'<span>秒</span>'
@@ -126,16 +118,11 @@ function downTimeTags(data){
  * 
  */
 function initGrabRed(elem){ 
-	var currentTime = $('#currentTime').val();
-	var startTime = $('#partyStartTime').val();
-	var endTime = $('#partEndTime').val();
-	
 	$(elem).show();
-	
 	$(elem).timeCountDown({
-		currentTime:currentTime,
-		startTime:startTime,
-		endTime:endTime,
+		currentTime: (new Date(currTime)).format('yyyy-MM-dd hh:mm:ss'),
+		startTime: (new Date(startTime)).format('yyyy-MM-dd hh:mm:ss'),
+		endTime: (new Date(endTime)).format('yyyy-MM-dd hh:mm:ss'),
 		activeStart:function(elem){ // 活动未开始
 		},
 		activeCurrent:function(elem,sTime){  // 活动正在进行
@@ -163,80 +150,84 @@ function openRedEnvelope(elem){
 	if(disabled == 'disabled'){
 		return;
 	}
-	var href = location.href;
-	var session = clientGetSession() || href.getUrlParamVal('session');
-	
-	$(elem).attr('disabled','disabled'); // 禁点
-	var url = baseUrl + '/h5/interaction/praise/hit',
-		paras = {
-			session : session,
-			udid : clientGetUdid() || href.getUrlParamVal('udid') 
-		};
-	$.ajax({
-		type:'post',
-		dataType : 'json',
-		url : url,
-		data : paras,
-		success : function(data){
-			$('#giftSurprise').hide();
-			if(data.type == 'success'){ // 拆到礼物
-				if(data.praiseInfo){ // 抢到了礼物
-					$('#winningPopup').show();
-					$('#winPrize').attr('src',data.praiseInfo.praiseSmallImageUrl);
-					$('#prizeName').html(data.praiseInfo.praiseName);
-				}else{ // 未抢到礼物
-					$('#errorPopup').show();
-				}
+	//var href = location.href;
+	//var session = clientGetSession() || href.getUrlParamVal('session');
+	//
+	//$(elem).attr('disabled','disabled'); // 禁点
+	//var url = baseUrl + '/h5/interaction/praise/hit',
+	//	paras = {
+	//		session : session,
+	//		udid : clientGetUdid() || href.getUrlParamVal('udid')
+	//	};
+	//$.ajax({
+	//	type:'post',
+	//	dataType : 'json',
+	//	url : url,
+	//	data : paras,
+	//	success : function(data){
+	//		$('#giftSurprise').hide();
+	//		if(data.type == 'success'){ // 拆到礼物
+	//			if(data.praiseInfo){ // 抢到了礼物
+                    setTimeout(function(){
+                        $('#giftSurprise').hide();
+                        $('#winningPopup').show();
+                        $('#winPrize').attr('src', 'images/pic-prize-1.png');
+                        $('#prizeName').html('定制水杯');
+                    }, 2000);
+				//}else{ // 未抢到礼物
+				//	$('#errorPopup').show();
+				//}
 				// 显示到计时
-				if(data.praiseHit){
-					if(data.praiseHit.nextTime != 0){ // 有下一场的情况
-						$('#currentTime').val((new Date(data.praiseHit.nowTime)).format('yyyy-MM-dd hh:mm:ss'));
-						$('#partyStartTime').val((new Date(data.praiseHit.nextTime)).format('yyyy-MM-dd hh:mm:ss'));
-						$('#partEndTime').val((new Date(data.praiseHit.endTime)).format('yyyy-MM-dd hh:mm:ss'));
-						
-						$('#grabEedCountDownList').html(downTimeTags({msg:'下一波大礼即将来袭'})).show(); // 倒计时
-						//点按钮播放动画
-						$('#partyAreaDownBtn').html('').removeClass('box-vm').hide();
-						
-						initGrabRed('#grabEedCountDown');
-					}else{ // 没有下一场的情况
-						$('#partyAreaDownBtn').remove();
-						$('#grabEedCountDownList').html('<div class="countDownTip" id="countDownTip">客官，本场活动已经打烊了，去首页寻找其他精彩活动吧。</div>').show()
-						.find('.countDownTip').css({'padding':'20px 20px 0','text-align':'left'});
-					}
-				}
-			}else{ 
-				if(data.jump == 'to_login'){ // session失效 , 跳登录
-					clientCheckLogin();
-				}else{
-					$('#errorPopup').show();
-				}
-			}
-			$(elem).attr('disabled','');
-			$(elem).removeClass('opening').html('<img src="images/pic-chai.png" alt="Chai">');
-		},
-		error : function(data){
-			$(elem).attr('disabled','');
-			$(elem).removeClass('opening').html('<img src="images/pic-chai.png" alt="Chai">');
-		}
-	});
+				//if(praiseHit){
+				//	if(nextTime != 0){ // 有下一场的情况
+				//		//$('#currentTime').val((new Date(data.praiseHit.nowTime)).format('yyyy-MM-dd hh:mm:ss'));
+				//		//$('#partyStartTime').val((new Date(data.praiseHit.nextTime)).format('yyyy-MM-dd hh:mm:ss'));
+				//		//$('#partEndTime').val((new Date(data.praiseHit.endTime)).format('yyyy-MM-dd hh:mm:ss'));
+				//
+				//		$('#grabEedCountDownList').html(downTimeTags({msg:'下一波大礼即将来袭'})).show(); // 倒计时
+				//		//点按钮播放动画
+				//		$('#partyAreaDownBtn').html('').removeClass('box-vm').hide();
+				//
+				//		initGrabRed('#grabEedCountDown');
+				//	}else{ // 没有下一场的情况
+				//		$('#partyAreaDownBtn').remove();
+				//		$('#grabEedCountDownList').html('<div class="countDownTip" id="countDownTip">客官，本场活动已经打烊了，去首页寻找其他精彩活动吧。</div>').show()
+				//		.find('.countDownTip').css({'padding':'20px 20px 0','text-align':'left'});
+				//	}
+				//}
+	//		}else{
+	//			if(data.jump == 'to_login'){ // session失效 , 跳登录
+	//				clientCheckLogin();
+	//			}else{
+	//				$('#errorPopup').show();
+	//			}
+	//		}
+	//		$(elem).attr('disabled','');
+	//		$(elem).removeClass('opening').html('<img src="images/pic-chai.png" alt="Chai">');
+	//	},
+	//	error : function(data){
+	//		$(elem).attr('disabled','');
+	//		$(elem).removeClass('opening').html('<img src="images/pic-chai.png" alt="Chai">');
+	//	}
+	//});
 }
 
 /**
  * 点击立即领取 ,判断登录 , 已登录跳转我的奖品列表
  * 
  */
-function receive(){ 
-	var href = location.href;
-	var session = clientGetSession() || href.getUrlParamVal('session');
-	
-	var udid = clientGetUdid() || href.getUrlParamVal('udid') ;
-	var url = yayaH5Url + '/h5/yaya/praise/mywin2?session='+session;
-	if(!session){
-		clientCheckLogin();
-	}else{
-		location.href = url;
-	}
+function receive(){
+    $('#winningPopup').hide();
+	//var href = location.href;
+	//var session = clientGetSession() || href.getUrlParamVal('session');
+	//
+	//var udid = clientGetUdid() || href.getUrlParamVal('udid') ;
+	//var url = yayaH5Url + '/h5/yaya/praise/mywin2?session='+session;
+	//if(!session){
+	//	clientCheckLogin();
+	//}else{
+	//	location.href = url;
+	//}
 }
 
 /**
@@ -284,7 +275,7 @@ function initGiftArea(flag, state, gifts) {
             giftList.find('ul.sky-carousel-container').html(giftList_li);
             
             initGrabRed('#sky-carousel-container');
-            skyCarousel(skyCarousel_startIndex);
+            //skyCarousel(skyCarousel_startIndex);
         }
 
         $('a.btn-rules').on('tap', function(){ $('#rulesPopup').show(); });
@@ -462,7 +453,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
                 }
                 showCard_html += '<p class="title">' + returnEmpty(list[i].programName) + '</p>';
                 showCard_html += '<p class="stars">' + formatStarNames(starName) + '</p>';
-                showCard_html += '<a class="btn btn-zan btn-zan-yellow" href="javascript: void(0);" data-tv-id="' + returnEmpty(list[i].tvId) + '" data-program-id="' + returnEmpty(list[i].id) + '"><img src="images/icon-thumb-normal.png" alt="Thumb"><span id="program-' + returnEmpty(list[i].id) + '">' + returnEmpty(list[i].pariseNum) + '</span></a>';
+                showCard_html += '<a class="btn btn-zan btn-zan-yellow" href="javascript: void(0);" data-tv-id="' + returnEmpty(list[i].tvId) + '" data-program-id="' + returnEmpty(list[i].id) + '"><span class="thumb"></span><span class="num" id="program-' + returnEmpty(list[i].id) + '">' + returnEmpty(list[i].pariseNum) + '</span></a>';
                 showCard_html += '</li>';
 
                 if (currentTime <= endTime) {
@@ -530,7 +521,7 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
                 $(this).find('div').css({'border-top-width': hh / 2 + 'px', 'border-bottom-width': hh / 2 + 'px'});
             });
             // initial programs vote
-            getProgramsVoteByIds(programIds);
+            // getProgramsVoteByIds(programIds);
         }
     }
 
@@ -540,9 +531,9 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
             tvId = $('#voteANum').data('tvId');
 
         tvVotePlusPlus(tvId);
-        that.addClass('btn-yellow-active').off('tap', voteA);
+        that.addClass('btn-yellow-active').text('已支持').off('tap', voteA);
         setTimeout(function() {
-            that.removeClass('btn-yellow-active').on('tap', voteA);
+            that.removeClass('btn-yellow-active').text('支持').on('tap', voteA);
         }, 5000);
         // voteTV(tvId); // 后台 TV 票数加一
     }
@@ -553,9 +544,9 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
             tvId = $('#voteANum').data('tvId');;
 
         tvVotePlusPlus(tvId);
-        that.addClass('btn-blue-active').off('tap', voteB);
+        that.addClass('btn-blue-active').text('已支持').off('tap', voteB);
         setTimeout(function() {
-            that.removeClass('btn-blue-active').on('tap', voteB);
+            that.removeClass('btn-blue-active').text('支持').on('tap', voteB);
         }, 5000);
         // voteTV(tvId); // 后台 TV 票数加一
     }
@@ -563,9 +554,9 @@ function initTvStations(flag, state, tvStations, programList, programRanking) {
     // vote program
     function voteProgramCard() {
         var that = $(this),
-            voteNum = Number(that.find('span').text()) + 1;
+            voteNum = Number(that.find('span.num').text()) + 1;
 
-        that.find('span').text(voteNum);
+        that.find('span.num').text(voteNum);
         tvVotePlusPlus(that.data('tvId')); // TV 票数加一
         that.addClass('btn-zan-active').off('tap', voteProgramCard);
         setTimeout(function() {

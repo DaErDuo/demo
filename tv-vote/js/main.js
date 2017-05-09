@@ -65,10 +65,11 @@ function initPage() {
     });
 
     // 投票
-    $('.btn-star').on('tap', doVote);
-    //$('.btn-star').on('touchmove', function(e){
-    //    e.preventDefault();
-    //})
+    var $starBtn = $('.btn-star');
+    $starBtn.on('tap', doVote);
+    $starBtn.on('touchmove', function(e){
+        e.preventDefault();
+    })
 }
 
 
@@ -120,7 +121,7 @@ function doVote() {
             // 定时器:五秒钟
             setTimeout(function() {
                 that.find('span').rotate('0deg').scale(1).css({'display': 'inline-block', 'opacity': 1});
-                that.removeClass('btn-star-voted').on('touchstart', doVote);
+                that.removeClass('btn-star-voted').on('tap', doVote);
             }, 5000);
 
             // 淡出效果
@@ -134,7 +135,7 @@ function doVote() {
 
     // 旋转缩小动画
     that.find('span').scale(1).animate({rotate: '1080deg', scale: '.3'}, animateTime);
-    that.addClass('btn-star-voted').off('touchstart', doVote);
+    that.addClass('btn-star-voted').off('tap', doVote);
 }
 
 /**
@@ -185,14 +186,14 @@ function votePlusPlus(tvId, teamId, starId) {
  * @param {String} selfId
  */
 function toClient(type, selfId) {
-    clientWebGotoNative({
-        type   : type,
-        id     : selfId, // 明星 id 或 资讯 id
-        title  : 'test',
-        url    : '',
-        liveKey: '',
-        shareVo: {}
-    });
+    //clientWebGotoNative({
+    //    type   : type,
+    //    id     : selfId, // 明星 id 或 资讯 id
+    //    title  : 'test',
+    //    url    : '',
+    //    liveKey: '',
+    //    shareVo: {}
+    //});
 }
 
 /**

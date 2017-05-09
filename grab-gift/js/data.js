@@ -1,9 +1,14 @@
 var active_key = 1;   //活动专区
 var program_key = 1; //节目盛宴
 var talk_key = 1;       //边看边聊
-var redpack_key = 0; //整点抢红包
+var redpack_key = 1; //整点抢红包
 var isover_key = 1;   //是否结束 0预热1开始 2结束
-var programlist_key=1;
+var programlist_key= 1;
+var startTime = 1483187400000;
+var endTime = 1483187410000;
+var currTime = 1483187395000;
+var nextTime = 1483187420000;
+var canHit = false;
 // 活动专区
 var listParty = [ {
     "id" : 151,
@@ -77,11 +82,11 @@ var listParty = [ {
 var tvList= [ {
     "id" : 1,
     "tvName" : "湖南卫视",
-    "praiseNum" : 133
+    "praiseNum" : 890
 }, {
     "id" : 2,
     "tvName" : "浙江卫视",
-    "praiseNum" : 99
+    "praiseNum" : 502
 } ];
 
 // 整点抢红包列表
@@ -135,7 +140,7 @@ var programList= [ {
     "sysStarIds" : "000001,000002",
     "sysStarNames" : "张天爱,刘宪华",
     "starNames" : "",
-    "pariseNum" : 1030
+    "pariseNum" : 113
 }, {
     "id" : 4,
     "tvId" : 2,
@@ -144,7 +149,7 @@ var programList= [ {
     "sysStarIds" : "100001,100002,100003,100004,100005,100006,100007",
     "sysStarNames" : "邓超,Angelababy,李晨,郑凯,陈赫,王祖蓝,鹿晗",
     "starNames" : "",
-    "pariseNum" : 0
+    "pariseNum" : 142
 }, {
     "id" : 5,
     "tvId" : 2,
@@ -161,16 +166,16 @@ var programList= [ {
     "startTime" : 1483182005000,
     "sysStarIds" : "000003",
     "sysStarNames" : "大张伟",
-    "pariseNum" : 3
+    "pariseNum" : 55
 }, {
     "id" : 8,
     "tvId" : 1,
     "programName" : "《跨年合伙人》",
-    "startTime" : 1483182010000,
-    "sysStarIds" : "000004,000005",
+    "startTime" : 1483182012000,
+    "sysStarIds" : "000004,000005,000018",
     "sysStarNames" : "杜海涛,钱枫,黄晓明",
     "starNames" : "",
-    "pariseNum" : 220
+    "pariseNum" : 0
 }, {
     "id" : 9,
     "tvId" : 2,
@@ -186,15 +191,15 @@ var programList= [ {
     "startTime" : 1483185049000,
     "sysStarIds" : "000006",
     "sysStarNames" : "SNH48",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 11,
     "tvId" : 2,
     "programName" : "《相见不如怀念+默+白天不懂夜的黑+征服》",
-    "startTime" : 1483185049000,
+    "startTime" : 1483183849000,
     "sysStarIds" : "100011",
     "sysStarNames" : "那英",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 12,
     "tvId" : 1,
@@ -202,7 +207,7 @@ var programList= [ {
     "startTime" : 1483188649000,
     "sysStarIds" : "000007",
     "sysStarNames" : "杨钰莹",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 13,
     "tvId" : 2,
@@ -210,7 +215,7 @@ var programList= [ {
     "startTime" : 1483188649000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 14,
     "tvId" : 1,
@@ -218,7 +223,7 @@ var programList= [ {
     "startTime" : 1483192249000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 15,
     "tvId" : 2,
@@ -226,7 +231,7 @@ var programList= [ {
     "startTime" : 1483192249000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 16,
     "tvId" : 1,
@@ -234,7 +239,7 @@ var programList= [ {
     "startTime" : 1483192549000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 17,
     "tvId" : 2,
@@ -242,7 +247,7 @@ var programList= [ {
     "startTime" : 1483192549000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 18,
     "tvId" : 1,
@@ -258,14 +263,14 @@ var programList= [ {
     "startTime" : 1483194649000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 20,
     "tvId" : 1,
     "programName" : "第18个节目",
     "startTime" : 1483196149000,
     "sysStarIds" : "210066,210063",
-    "pariseNum" : 22
+    "pariseNum" : 0
 }, {
     "id" : 21,
     "tvId" : 2,
@@ -273,7 +278,7 @@ var programList= [ {
     "startTime" : 1483196149000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 22,
     "tvId" : 1,
@@ -281,7 +286,7 @@ var programList= [ {
     "startTime" : 1483199749000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 }, {
     "id" : 23,
     "tvId" : 2,
@@ -289,58 +294,56 @@ var programList= [ {
     "startTime" : 1483199749000,
     "sysStarIds" : "210066,210063",
     "sysStarNames" : "",
-    "pariseNum" : 2
+    "pariseNum" : 0
 } ];
 
 // 排名 结束后 出现
 var programRanking= [ {
     "id" : 1,
     "tvId" : 1,
-    "programName" : "第1个节目",
+    "programName" : "歌舞秀",
     "startTime" : 1483182000000,
-    "sysStarIds" : "210072,210096,210165",
-    "sysStarNames" : "6666666,1111,test3",
-    "starNames" : "阿雅",
+    "sysStarIds" : "000001,000002",
+    "sysStarNames" : "张天爱,刘宪华",
     "pariseNum" : 1030
 }, {
     "id" : 8,
     "tvId" : 1,
-    "programName" : "第5个节目",
+    "programName" : "《人间精品起来嗨》、《逛吃逛吃》",
     "startTime" : 1483183207000,
-    "sysStarIds" : "210035,210034",
-    "sysStarNames" : "zhmtest15,zhmtest14",
-    "starNames" : "666",
+    "sysStarIds" : "000003",
+    "sysStarNames" : "大张伟",
     "pariseNum" : 220
 }, {
     "id" : 5,
     "tvId" : 2,
-    "programName" : "第4个节目",
+    "programName" : "《超级英雄》",
     "startTime" : 1483182649000,
-    "sysStarIds" : "210066,210063",
-    "sysStarNames" : "rrrr,zhmtest21",
-    "starNames" : "郑伊健",
+    "sysStarIds" : "100001,100002,100003,100004,100005,100006,100007",
+    "sysStarNames" : "邓超,Angelababy,李晨,郑凯,陈赫,王祖蓝,鹿晗",
     "pariseNum" : 74
 }, {
     "id" : 20,
-    "tvId" : 1,
-    "programName" : "第18个节目",
-    "startTime" : 1483196149000,
-    "sysStarIds" : "210066,210063",
+    "tvId" : 2,
+    "programName" : "《小苹果》、《老男孩》",
+    "startTime" : 1483182014000,
+    "sysStarIds" : "100009,100010",
+    "sysStarNames" : "筷子兄弟,陈赫",
     "pariseNum" : 22
 }, {
     "id" : 6,
     "tvId" : 1,
-    "programName" : "第3个节目",
-    "startTime" : 1483182629000,
-    "sysStarIds" : "210165",
-    "sysStarNames" : "test3",
+    "programName" : "《新年这一刻》",
+    "startTime" : 1483185049000,
+    "sysStarIds" : "000006",
+    "sysStarNames" : "SNH48",
     "pariseNum" : 3
 } ];
 
 // 动态
 var listInfoParty= [ {
     "id" : 24873,
-    "title" : "世界上最漂亮的狗长这样",
+    "title" : "世界上最漂亮的小孩长这样",
     "titleImage" : "http://7xlid5.com3.z0.glb.qiniucdn.com/8404c5bc-9f99-4d61-8816-1b14fbceed5d.jpg",
     "infoType" : 1,
     "titleLayout" : 5,
@@ -354,7 +357,7 @@ var listInfoParty= [ {
     "contentType" : 0
 }, {
     "id" : 1000707,
-    "title" : "跨年专区的视频1",
+    "title" : "跨年专区的视频",
     "titleImage" : "http://images.9zhiad.com/1fe9e929-45ea-4ffb-8a14-02ffe3664eb4.jpg",
     "infoType" : 0,
     "titleLayout" : 5,
@@ -363,21 +366,21 @@ var listInfoParty= [ {
     "contentType" : 1
 }, {
     "id" : 1000565,
-    "title" : "跨年专区的上文下图1",
+    "title" : "跨年专区的上文下图",
     "titleImage" : "http://images.9zhiad.com/c98e2178-c006-4575-b56b-fd37e0cae9ed.jpg",
     "infoType" : 1,
     "titleLayout" : 5,
     "contentType" : 0
 }, {
     "id" : 1000576,
-    "title" : "跨年专区的专题1",
+    "title" : "跨年专区的专题",
     "titleImage" : "http://images.9zhiad.com/316a5ec3-5042-46b5-8c3b-decef6d2d88a.jpg",
     "infoType" : 3,
     "titleLayout" : 5,
     "contentType" : 0
 }, {
     "id" : 1000570,
-    "title" : "跨年专区的左图右文带视频1",
+    "title" : "跨年专区的左图右文带视频",
     "titleImage" : "http://images.9zhiad.com/f9929347-fd48-4fb8-adc2-eadda8b50a2e.jpg",
     "infoType" : 1,
     "titleLayout" : 1,
