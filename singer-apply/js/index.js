@@ -6,7 +6,7 @@ $(function () {
     $('#countdown').timeCountDown({
         currentTime: (new Date()).format('yyyy-MM-dd hh:mm:ss'),
         startTime: '2017-03-01 00:00:01',
-        endTime: '2017-05-31 23:59:59',
+        endTime: '2017-06-31 23:59:59',
 
         activeStart: function() { // 活动未开始
             $cdTitleImg.prop('src', 'images/pic-txt-cd-before-start.png');

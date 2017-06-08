@@ -1,0 +1,594 @@
+@charset "UTF-8";
+html, body, div, ul, li, p, span, img, a,
+form, input, table, tr, th, td, h1, dl, dt, dd {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+}
+html, body{
+    height: 100%;
+}
+body {
+    font-family: "PingFang SC", "STHeiti", "Microsoft YaHei", "宋体";
+    background: #191919;
+}
+a {
+    text-decoration: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+li {
+    list-style: none;
+}
+input {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a.btn {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    background: #e73850;
+}
+a.btn-big {
+    position: relative;
+    z-index: 0;
+    display: block;
+    width: 180px;
+    height: 65px;
+    margin: 0 auto 58px;
+    font-size: 1.5rem;
+    line-height: 2.75;
+    text-align: center;
+    background: url("../images/pic-bg-btn.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+a.btn-qp {
+    font-weight: 900;
+}
+a.btn-share {
+    margin-bottom: 0;
+}
+.block-title {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 114px;
+    margin-left: -57px;;
+    font-size: 1.125rem;
+    line-height: 1.56;
+    color: #ffed04;
+    text-align: center;
+    border: 1px solid #e73850;
+    background: rgba(231, 56, 80, .2);
+}
+.block-title:before,
+.block-title:after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    display: inline-block;
+    width: 42px;
+    height: 0;
+    border-top: 1px solid #e73850;
+}
+.block-title:before {
+    left: -47px;
+}
+.block-title:after {
+    right: -47px;
+}
+span.piece {
+    position: absolute;
+    display: inline-block;
+    width: 12px;
+    height: 9px;
+    background: url("../images/icon-piece.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+span.piece-left {
+    left: -18px;
+}
+span.piece-right {
+    right: -16px;
+}
+.page-common .bg-top {
+    position: relative;
+    text-align: center;
+}
+.page-common .bg-top img:first-child {
+    max-width: 100%;
+}
+.page-common .bg-top img:last-child {
+    position: absolute;
+    left: 50%;
+    top: 104px;
+    width: 250px;
+    margin-left: -125px;
+}
+.page-common .bg-bottom {
+    margin-top: 0;
+}
+/* =============================== page style =============================== */
+.page {
+    overflow: hidden;
+    max-width: 640px;
+    margin: auto;
+}
+.pic-bg {
+    font-size: 0;
+    text-align: center;
+}
+.pic-bg img {
+    max-width: 100%;
+}
+.pic-bg-bottom {
+    margin-top: -90px;
+}
+.bg-top-1 {
+    height: 200px;
+    background: url("../images/pic-top-1_1.png") center no-repeat;
+}
+.bg-top-2 {
+    height: 261px;
+    background: url("../images/pic-top-2_1.png") center no-repeat;
+}
+.bg-bottom {
+    height: 177px;
+    margin-top: -90px;
+    background: url("../images/pic-bg-bottom-1.png") center no-repeat;
+}
+.main {
+    position: relative;
+    margin-top: -176px;
+}
+.main .section {
+    position: relative;
+    width: 300px;
+    margin: 0 auto 58px;
+    border: 1px solid #404040;
+}
+.links-wrap {
+    margin-bottom: 16px;
+    font-size: 0;
+    text-align: center;
+}
+.links-wrap a.btn-link {
+    position: relative;
+    height: 30px;
+    padding: 0 6px;
+    font-size: .75rem;
+    line-height: 2.5;
+    color: #ffed04;
+    border: 1px solid #e73850;
+    background: none;
+}
+.links-wrap a.btn-link:before,
+.links-wrap a.btn-link:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+}
+.links-wrap a.btn-link:before {
+    left: -5px;
+    bottom: -5px;
+    border-left: 1px solid #e73850;
+    border-bottom: 1px solid #e73850;
+}
+.links-wrap a.btn-link:after {
+    right: -5px;
+    top: -5px;
+    border-top: 1px solid #e73850;
+    border-right: 1px solid #e73850;
+}
+.links-wrap a.btn-link:first-child {
+    margin-right: 62px;
+}
+/* =============================== countdown style =============================== */
+.countdown-wrap {
+    margin-bottom: 18px;
+}
+.countdown-wrap table {
+    width: 202px;
+    margin: auto;
+}
+.countdown-wrap table td {
+    text-align: center;
+    font-size: 0;
+    color: #999;
+}
+.countdown-wrap table span.txt-num {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #fff;
+}
+.countdown-wrap table img.mark-colon {
+    width: 6px;
+    height: 17px;
+}
+.countdown-wrap table img.pic-txt {
+    width: 34px;
+    height: 6px;
+}
+.countdown-wrap table p {
+    font-size: .875rem;
+    line-height: 2.15;
+}
+/* =============================== search form style =============================== */
+.search-wrap form .ipt-wrap {
+    font-size: 0;
+    height: 50px;
+}
+.search-wrap form .ipt-wrap .ipt {
+    width: 226px;
+    height: 48px;
+    padding: 0 10px;
+    font-size: .9375rem;
+    color: #fff;
+    box-sizing: border-box;
+    background: none;
+}
+.search-wrap form .ipt-wrap .ipt-btn {
+    display: inline-block;
+    width: 73px;
+    border-radius: 0;
+    background: #e73850;
+}
+.search-wrap .rank-item div:first-child img {
+    width: 25px;
+}
+div.tips {
+    font-size: .75rem;
+    line-height: 3.17;
+    text-align: center;
+    color: #fff;
+    background: #e73850;
+}
+/* =============================== rank list style =============================== */
+.main .rank-wrap {
+    margin-bottom: 20px;
+}
+.rank-wrap .rank-tab {
+    font-size: 0;
+}
+.rank-wrap .rank-tab a {
+    width: 50%;
+    font-size: .9375rem;
+    line-height: 3;
+    color: #e73850;
+    background: none;
+}
+.rank-wrap .rank-tab a.active {
+    color: #fff;
+    background: #e73850;
+}
+.rank-item {
+    display: -webkit-flex;
+    display: flex;
+
+    padding: 15px 4px;
+    border-top: 1px solid #404040;
+}
+.rank-item div {
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+    height: 50px;
+}
+.rank-item div:first-child {
+    -webkit-flex-basis: 40px;
+    flex-basis: 40px;
+    width: 40px;
+
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 50px;
+    color: #e73850;
+    text-align: center;
+}
+.rank-item div:first-child img {
+    width: 35px;
+    vertical-align: middle;
+}
+.rank-item .user-info {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+
+    position: relative;
+    margin-left: 2px;
+}
+.rank-item .user-info img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+}
+.rank-item .user-info p {
+    padding-left: 58px;
+    font-size: .9375rem;
+    line-height: 1.6;
+    color: #fff;
+
+    max-width: 126px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.rank-item .user-info p:last-child {
+    font-size: .75rem;
+    line-height: 2.17;
+}
+.rank-item div:last-child {
+    -webkit-flex-basis: 70px;
+    flex-basis: 70px;
+
+    width: 70px;
+    min-width: 70px;
+}
+.rank-item div:last-child p {
+    height: 23px;
+    text-align: center;
+}
+.rank-item div:last-child span {
+    font-size: .9375rem;
+    color: #e73850;
+    padding: 0 2px;
+}
+.rank-item div:last-child img {
+    width: 15px;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-bottom: -1px;
+}
+.rank-item div:last-child a {
+    display: block;
+    font-size: .9375rem;
+    line-height: 1.8;
+}
+.rank-wrap a.btn-see-more {
+    display: block;
+    font-size: .875rem;
+    line-height: 2.57;
+}
+/* =============================== my rank style =============================== */
+.my-rank-wrap {
+}
+.my-rank-wrap .my-rank {
+    padding: 18px 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.my-rank .my-info {
+    display: inline-block;
+}
+.my-rank .my-info img {
+    float: left;
+    width: 60px;
+    height: 60px;
+}
+.my-rank .my-info p {
+    padding-left: 68px;
+    font-size: .9375rem;
+    line-height: 2;
+    color: #fff;
+    text-align: left;
+}
+.rank-box {
+    height: 88px;
+    margin-top: 16px;
+}
+.rank-box div {
+    padding-top: 11px;
+    width: 98px;
+    border: 1px solid #e73850;
+}
+.rank-box div h1 {
+    font-size: 1.375rem;
+    line-height: 1.2;
+    color: #e73850;
+}
+.rank-box div p {
+    font-size: .75rem;
+    line-height: 1.75;
+    color: #fff;
+}
+.rank-box div p:last-child {
+    margin-top: 6px;
+    border-top: 1px solid #e73850;
+    background: rgba(231, 56, 80, .2);
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.rank-box div:first-child {
+    float: left;
+}
+.rank-box div:last-child {
+    float: right;
+}
+.my-prize {
+    padding: 10px 5px 0;
+}
+.my-prize .bar,
+.my-prize .bar a.btn,
+.my-prize table td,
+.my-prize table th {
+    font-size: .875rem;
+    color: #fff;
+}
+.my-prize .bar {
+    line-height: 1.93;
+    border-bottom: 1px solid #e73850;
+}
+.my-prize .bar > img {
+    width: 16px;
+    margin-right: 5px;
+    margin-bottom: -1px;
+}
+.my-prize .bar a.btn {
+    float: right;
+    padding: 0 10px;
+    line-height: 1.86;
+}
+.my-prize .bar a.btn img {
+    width: 8px;
+    margin-left: 2px;
+    margin-bottom: -2px;
+}
+.my-prize table {
+    width: 100%;
+}
+.my-prize table th {
+    line-height: 2.7;
+    color: #999999;
+}
+.my-prize table td {
+    padding-bottom: 14px;
+    line-height: 1;
+    text-align: center;
+}
+span.square {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-bottom: 3px;
+    background: #e73850;
+}
+/* pieces position */
+.search-wrap span.piece {
+    top: 58px;
+}
+.my-rank-wrap span.piece-left {
+    bottom: 74px;
+}
+.my-rank-wrap span.piece-right {
+    bottom: 58px;
+}
+.rank-wrap span.piece-left {
+    bottom: 48px;
+}
+.rank-wrap span.piece-right {
+    bottom: 36px;
+}
+/* =============================== page rules style =============================== */
+.page-common .main {
+    margin-top: -98px;
+}
+.main dl.rules {
+    width: 87.2%;
+    margin: auto;
+    font-size: .9375rem;
+}
+.main dl.rules dt {
+    margin-top: 8px;
+    line-height: 1.6;
+    color: #e73850;
+}
+.main dl.rules dt span.square {
+    margin-right: 6px;
+}
+.main dl.rules dd {
+    position: relative;
+    padding-left: 28px;
+    line-height: 1.47;
+    color: #fff;
+    text-align: justify;
+}
+.main dl.rules dd span {
+    position: absolute;
+    left: 10px;
+    display: inline-block;
+}
+.page-rules .main p.tips {
+    margin-top: 24px;
+}
+/* =============================== page winners style =============================== */
+.main .winner-list {
+    margin-bottom: 20px;
+}
+.winner-list .list-title {
+    font-size: 1.125rem;
+    line-height: 2.44;
+    color: #fff;
+    text-align: center;
+    background: #e73850;
+}
+.winner-list .list-title span {
+    margin-right: 12px;
+}
+.winner-item .rank-item div:last-child {
+    line-height: 50px;
+    text-align: right;
+}
+.winner-item p.prize-name {
+    margin-bottom: 10px;
+    font-size: .9375rem;
+    line-height: 1;
+    color: #fff;
+}
+.winner-item span.square {
+    margin: 0 10px 2px;
+    vertical-align: middle;
+}
+/* =============================== page ranklist style =============================== */
+.main p.tips {
+    font-size: .9375rem;
+    line-height: 1;
+    color: #666;
+    text-align: center;
+}
+/* =============================== media style =============================== */
+@media screen and (max-width: 366px)  {
+    .pic-bg-bottom {
+        margin-top: -77px;
+    }
+    .main {
+        margin-top: -148px;
+    }
+    .page-common .bg-top img:last-child {
+        top: 100px;
+    }
+    .page-common .main {
+        margin-top: -90px;
+    }
+}
+@media screen and (max-width: 333px)  {
+    .pic-bg-bottom {
+        margin-top: -77px;
+    }
+    .main {
+        margin-top: -148px;
+    }
+    .page-common .bg-top img:last-child {
+        top: 88px;
+    }
+    .page-common .main {
+        margin-top: -72px;
+    }
+}
+@media screen and (min-width: 400px)  {
+    .pic-bg-bottom {
+        margin-top: -99px;
+    }
+    .main {
+        margin-top: -196px;
+    }
+    .page-common .bg-top img:last-child {
+        top: 114px;
+    }
+    .page-common .main {
+        margin-top: -116px;
+    }
+}
+@media screen and (min-width: 444px)  {
+    .main {
+        margin-top: -302px;
+    }
+}

@@ -705,33 +705,36 @@
 	margin-left: 3px;
 }
 .gift-surprise .gift-wrapper a.opening p .dot1 {
+  -webkit-animation: show-hide1 .6s linear infinite .2s;
   animation: show-hide1 .6s linear infinite .2s;
 }
 .gift-surprise .gift-wrapper a.opening p .dot2 {
+  -webkit-animation: show-hide2 .6s linear infinite .1s;
   animation: show-hide2 .6s linear infinite .1s;
 }
 .gift-surprise .gift-wrapper a.opening p .dot3 {
+  -webkit-animation: show-hide3 .6s linear infinite;
   animation: show-hide3 .6s linear infinite;
 }
 @-webkit-keyframes show-hide1 {
   from {opacity: 1;}
   to {opacity: .5;}
 }
+@keyframes show-hide1 {
+    from {opacity: 1;}
+    to {opacity: .5;}
+}
 @-webkit-keyframes show-hide2 {
   from {opacity: 1;}
   to {opacity: .2;}
 }
+@keyframes show-hide2 {
+    from {opacity: 1;}
+    to {opacity: .2;}
+}
 @-webkit-keyframes show-hide3 {
   from {opacity: 1;}
   to {opacity: 0;}
-}
-@keyframes show-hide1 {
-  from {opacity: 1;}
-  to {opacity: .5;}
-}
-@keyframes show-hide2 {
-  from {opacity: 1;}
-  to {opacity: .2;}
 }
 @keyframes show-hide3 {
   from {opacity: 1;}

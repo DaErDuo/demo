@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link href="css/style.css" rel="stylesheet">
+    <title>BigBang 演唱会抢票活动</title>
+</head>
+<body>
+    <div class="page">
+        <div class="pic-bg"><img src="images/pic-top-1.png" alt="top1"></div>
+        <div class="pic-bg"><img src="images/pic-top-2.png" alt="top2"></div>
+
+        <div class="main">
+            <div class="links-wrap">
+                <a class="btn btn-link" href="rules.html">活动规则</a>
+                <a class="btn btn-link" href="winners.html">获奖名单</a>
+            </div>
+
+            <!-- countdown -->
+            <div class="countdown-wrap">
+                <table>
+                    <tr>
+                        <td><span id="days" class="txt-num">20</span></td>
+                        <td><img class="mark-colon" src="images/icon-colon.png"></td>
+                        <td><span id="hours" class="txt-num">01</span></td>
+                        <td><img class="mark-colon" src="images/icon-colon.png"></td>
+                        <td><span id="minutes" class="txt-num">16</span></td>
+                        <td><img class="mark-colon" src="images/icon-colon.png"></td>
+                        <td><span id="seconds" class="txt-num">59</span></td>
+                    </tr>
+                    <tr>
+                        <td><img class="pic-txt" src="images/pic-txt-days.png"></td>
+                        <td></td>
+                        <td><img class="pic-txt" src="images/pic-txt-hours.png"></td>
+                        <td></td>
+                        <td><img class="pic-txt" src="images/pic-txt-minutes.png"></td>
+                        <td></td>
+                        <td><img class="pic-txt" src="images/pic-txt-seconds.png"></td>
+                    </tr>
+                    <!--<tr><td colspan="7"><p>活动截至倒计时</p></td></tr>-->
+                </table>
+            </div>
+
+            <!-- button rush tickets -->
+            <a class="btn btn-big btn-qp" href="javascript: void(0);">火速抢票</a>
+
+            <!-- search -->
+            <div class="section search-wrap">
+                <div class="block-title">帮朋友助力</div>
+                <form name="searchForm" method="post" action="">
+                    <div class="ipt-wrap">
+                        <input class="ipt" type="text" placeholder="请输入编号为TA助力">
+                        <input id="searchBtn" class="ipt ipt-btn" type="button" value="查询">
+                    </div>
+                </form>
+                <div id="searchResult" class="rank-item" style="display: none;">
+                    <div><img src="images/pic-txt-ZWSB.png" alt="rank"></div>
+                    <div class="user-info">
+                        <img src="images/pic-avatar.jpg" alt="avatar">
+                        <p>傲娇的小锤子</p>
+                        <p>编号 00000001</p>
+                    </div>
+                    <div>
+                        <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                        <a id="sptBtn" class="btn support" href="javascript: void(0);">支持</a>
+                    </div>
+                </div>
+                <div id="tips" class="tips" style="display: none;">您已为TA助力成功，明天再来把！</div>
+
+                <span class="piece piece-left"></span>
+                <span class="piece piece-right"></span>
+            </div>
+
+            <!-- my rank -->
+            <div class="section my-rank-wrap" style="">
+                <div class="block-title">我的排行</div>
+                <div class="my-rank">
+                    <div class="my-info">
+                        <img src="images/pic-avatar.jpg" alt="avatar">
+                        <p>傲娇的小锤子</p>
+                        <p>编号 <span style="color: #e73850;">00000001</span></p>
+                    </div>
+                    <div class="rank-box">
+                        <div>
+                            <p>当前票数</p>
+                            <h1>1000</h1>
+                            <p>排名：第<span>1</span>名</p>
+                        </div>
+                        <div>
+                            <p>总票数</p>
+                            <h1>18888</h1>
+                            <p>排名：第<span>10</span>名</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="btn btn-big btn-share" href="javascript: void(0);">邀好友助力</a>
+
+                <div class="my-prize">
+                    <div class="bar"><img src="images/icon-gift.png" alt="gift">我的奖品<a class="btn" href="#">去领奖<img src="images/icon-arrow-right.png" alt="arrow"></a></div>
+                    <table cellspacing="0" cellpadding="0">
+                        <tr><th width="4%"></th><th width="14%">日期</th><th width="38%">排名</th><th width="54%">奖品</th></tr>
+                        <tr><td><span class="square"></span></td><td>2.28</td><td>第1名</td><td>获得签名CD一张</td></tr>
+                        <tr><td><span class="square"></span></td><td>2.27</td><td>第2名</td><td>获得签名CD一张</td></tr>
+                        <tr><td><span class="square"></span></td><td>2.26</td><td>第3名</td><td>获得签名CD一张</td></tr>
+                    </table>
+                </div>
+
+                <span class="piece piece-left"></span>
+                <span class="piece piece-right"></span>
+            </div>
+
+            <!-- rank list -->
+            <div class="section rank-wrap">
+                <div class="block-title">排行榜</div>
+                <div class="rank-tab">
+                    <a id="curTab" class="btn active" href="javascript: void(0);">当前票数排行</a>
+                    <a id="totTab" class="btn" href="javascript: void(0);">总票数排行</a>
+                </div>
+
+                <!-- current rank -->
+                <ul id="currentRank">
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-1.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">100</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-2.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">100</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-3.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">100</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>4</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>5</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>6</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>7</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>8</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>9</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>10</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- total rank -->
+                <ul id="totalRank" style="display: none;">
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-1.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-2.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div><img src="images/icon-rank-3.png" alt="rank"></div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>4</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                    <li class="rank-item">
+                        <div>5</div>
+                        <div class="user-info">
+                            <img src="images/pic-avatar.jpg" alt="avatar">
+                            <p>傲娇的小锤子</p>
+                            <p>编号 00000001</p>
+                        </div>
+                        <div>
+                            <p><span class="votes">9999</span><img src="images/icon-heart.png" alt="heart"></p>
+                            <a class="btn support" href="javascript: void(0);">支持</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- see more -->
+                <a class="btn btn-see-more" href="ranklist.html">查看更多</a>
+
+                <span class="piece piece-left"></span>
+                <span class="piece piece-right"></span>
+            </div>
+
+            <!-- button share -->
+            <a class="btn btn-big btn-share" href="javascript: void(0);">邀好友助力</a>
+        </div>
+
+        <div class="pic-bg pic-bg-bottom"><img src="images/pic-bg-bottom.png" alt="bottom"></div>
+    </div>
+
+    <script src="../common/js/jquery-1.11.3.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-98446265-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
