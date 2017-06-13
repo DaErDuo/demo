@@ -592,16 +592,30 @@ span.prize-name {
 
 /********************************* animation *********************************/
 .pic-bg-top-1-animate {
+    -webkit-animation: animate1 .4s ease-out forwards;
     animation: animate1 .4s ease-out forwards;
 }
 .pic-bg-top-2-animate {
+    -webkit-animation: animate2 .8s ease-in-out forwards;
     animation: animate2 .8s ease-in-out forwards;
 }
 .pic-bg-top-3-animate {
+    -webkit-animation: animate3 1s ease-out forwards;
     animation: animate3 1s ease-out forwards;
 }
 .pic-bg-top-4-animate {
+    -webkit-animation: animate4 1.2s ease-in-out 0.2s forwards;
     animation: animate4 1.2s ease-in-out 0.2s forwards;
+}
+@-webkit-keyframes animate1 {
+    from {
+        left: 64px;
+        opacity: 0;
+    }
+    to {
+        left: 7px;
+        opacity: 1;
+    }
 }
 @keyframes animate1 {
     from {
@@ -611,6 +625,20 @@ span.prize-name {
     to {
         left: 7px;
         opacity: 1;
+    }
+}
+@-webkit-keyframes animate2 {
+    0% {
+        width: 64%;
+        margin-left: -32%;
+    }
+    50% {
+        width: 76%;
+        margin-left: -38%;
+    }
+    100% {
+        width: 70%;
+        margin-left: -35%;
     }
 }
 @keyframes animate2 {
@@ -627,6 +655,16 @@ span.prize-name {
         margin-left: -35%;
     }
 }
+@-webkit-keyframes animate3 {
+    from {
+        width: 86.8%;
+        opacity: 0;
+    }
+    to {
+        width: 96.8%;
+        opacity: 1;
+    }
+}
 @keyframes animate3 {
     from {
         width: 86.8%;
@@ -636,6 +674,17 @@ span.prize-name {
         width: 96.8%;
         opacity: 1;
     }
+}
+@-webkit-keyframes animate4 {
+    0% {top:7px;opacity:0}
+    12% {top:7px;opacity:0.12}
+    32% {top:2px;opacity:0.32}
+    42% {top:7px;opacity:0.42}
+    58% {top:2px;opacity:0.58}
+    66% {top:7px;opacity:0.66}
+    84% {top:2px;opacity:0.84}
+    92% {top:7px;opacity:0.92}
+    100% {top:7px;opacity:1}
 }
 @keyframes animate4 {
     0% {top:7px;opacity:0}
@@ -649,10 +698,23 @@ span.prize-name {
     100% {top:7px;opacity:1}
 }
 .block-box .title img.pic-square-yellow-animate {
+    -webkit-animation: up-and-down 1.2s ease-in-out infinite;
     animation: up-and-down 1.2s ease-in-out infinite;
 }
 .block-box .title img.pic-square-purple-animate {
+    -webkit-animation: down-and-up 1.2s ease-in-out infinite;
     animation: down-and-up 1.2s ease-in-out infinite;
+}
+@-webkit-keyframes up-and-down {
+    0% {
+        bottom: 0;
+    }
+    50% {
+        bottom: 5px;
+    }
+    100% {
+        bottom: 0;
+    }
 }
 @keyframes up-and-down {
     0% {
@@ -663,6 +725,17 @@ span.prize-name {
     }
     100% {
         bottom: 0;
+    }
+}
+@-webkit-keyframes down-and-up {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 5px;
+    }
+    100% {
+        top: 0;
     }
 }
 @keyframes down-and-up {
